@@ -59,13 +59,69 @@ function getWinner(playerMove,computerMove) {
     } 
     return winner;
 }
-
 function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
+
+    for (var rounds = 0; playerWins < 5 && computerWins < 5; rounds++) {
+
+        var cpu_move = getComputerMove();
+        var player_move = getPlayerMove();    
+        var winner = getWinner(player_move,cpu_move); // Initializes the next round!
+
+    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won X times.
+
+        if (winner == 'player') {
+           playerWins += 1;
+           console.log(" Round " + rounds + " - Player won playing " + player_move + " against CPU's " + cpu_move + ". Score: Player " + playerWins + " and CPU " + computerWins);
+        
+        }  else if (winner == 'computer') {
+            computerWins += 1;
+            console.log(" Round " + rounds + " - Computer won playing " + cpu_move + " against player's " + player_move + ". Score: Player " + playerWins + " and CPU " + computerWins);
+        
+        } else {
+            console.log("Round " + rounds + " is a tie.  Play again.")
+        
+        }
+
+    }
+
+    return [playerWins, computerWins];
+
+}
+
+
+function playTo(num) {
+
+    console.log("Let's play Rock, Paper, Scissors");
+    var playerWins = 0;
+    var computerWins = 0;
+
+    for (var rounds = 0; playerWins < num && computerWins < num; rounds++) {
+
+    var cpu_move = getComputerMove();
+    var player_move = getPlayerMove();    
+    var winner = getWinner(player_move,cpu_move); // Initializes the next round!
+
+    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won X times.
+
+        if (winner == 'player') {
+            playerWins += 1;
+            console.log(" Round " + rounds + " - Player won playing " + player_move + " against CPU's " + cpu_move + ". Score: Player " + playerWins + " and CPU " + computerWins);
+        
+        }  else if (winner == 'computer') {
+            computerWins += 1;
+            console.log(" Round " + rounds + " - Computer won playing " + cpu_move + " against player's " + player_move + ". Score: Player " + playerWins + " and CPU " + computerWins);
+        
+        } else {
+            console.log("Round " + rounds + " is a tie.  Play again.")
+        
+        }
+
+    }
+
+
     return [playerWins, computerWins];
 }
 
